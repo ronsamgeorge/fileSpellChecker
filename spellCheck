@@ -1,3 +1,31 @@
 #!/bin/bash
 
+# A script to spell check files in a given folder
 echo "Spell check files in a folder.."
+
+
+# echo the files in the provided folder in the argument
+# it can be accessed using the $1 argument
+echo "the files in the following folder will be spell checked : $(pwd $1)"
+
+# print out the files in the folder
+echo $(ls $1)
+
+#function to check if a package is installed
+function is_installed() {
+  if [ -n [$(dpkg -l  |  awk "/^ii  $1/")] ]; then
+        return 1;
+    fi
+    return 0;
+}
+
+
+# check if aspell package is installed already, install it if not present
+if is_installed "aspell"; then
+    echo "aspell is already present ";
+else
+    sudo apt install -y aspell;
+fi
+
+
+# 
