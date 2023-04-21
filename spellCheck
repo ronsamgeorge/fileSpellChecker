@@ -13,7 +13,7 @@ echo $(ls $1)
 
 #function to check if a package is installed
 function is_installed() {
-  if [ -n [$(dpkg -l  |  awk "/^ii  $1/")] ]; then
+  if [ -n  $(dpkg -l  |  awk "/^ii  $1/") ]; then
         return 1;
     fi
     return 0;
@@ -28,4 +28,9 @@ else
 fi
 
 
-
+# search for files in the directory and echo out the 
+for file in "$1"/*.{md,txt}; do
+    echo "filename : $(basename $file)"
+    echo "List of words : "
+    aspell list < $file
+done
