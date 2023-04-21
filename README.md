@@ -1,2 +1,5 @@
 # fileSpellChecker
-A bash Script to spellcheck the names of files in a folder
+
+A bash Script to spell check files in a folder
+
+File types supported : .txt , .md
