@@ -28,7 +28,7 @@ else
 fi
 
 
-# search for files in the directory and echo out the 
+# search for files in the directory and echo out the filename and corresponding wrong words
 for file in "$1"/*.{md,txt}; do
     echo "filename : $(basename $file)"
     echo "List of words : "
