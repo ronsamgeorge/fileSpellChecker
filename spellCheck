@@ -32,5 +32,5 @@ fi
 for file in "$1"/*.{md,txt}; do
     echo "filename : $(basename $file)"
     echo "List of words : "
-    aspell list < $file
+    aspell list < $file --ignore-case
 done
